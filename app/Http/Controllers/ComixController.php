@@ -40,7 +40,9 @@ class ComixController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $comix = Comix::findOrFail($id);
+
+        return view('admin.comix.show', compact('comix'));
     }
 
     /**
