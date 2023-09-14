@@ -32,7 +32,23 @@ class ComixController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $formdata = $request->all();
+        
+        $comix = new comix();
+        $comix->title = $formdata['title'];
+        $comix->description = $formdata['description'];
+        $comix->thumb = $formdata['thumb'];
+        $comix->price = $formdata['price'];
+        $comix->series = $formdata['series'];
+        $comix->sale_date = $formdata['sale_date'];
+        $comix->type = $formdata['type'];
+        $comix->artist = json_encode($formdata['artists']);
+        $comix->writers = json_encode($formdata['writers']);
+
+        $comix->save();
+
+
+        return redirect()->route('comix.show', ['comixs' =>$comix->id]);
     }
 
     /**
