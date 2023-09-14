@@ -24,7 +24,7 @@ class ComixController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.comix.create');
     }
 
     /**
