@@ -16,6 +16,8 @@ class ComixSeeder extends Seeder
     public function run(): void
     {
         $comixs = config('comix');
+
+        Comix::truncate();
         foreach ($comixs as $comixElement) {
            $comix = new comix();
            $comix->title = $comixElement['title'];

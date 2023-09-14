@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+// Controllers
+use App\Http\Controllers\ComixController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,10 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-
-    return view('home');
-
+    return view('home', []);
 });
 
-Route::resource('comix', 'ComixController');
-
+Route::resource('comixs', ComixController::class);

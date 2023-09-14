@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+//model
+
+use App\Models\Comix;
+
 class ComixController extends Controller
 {
     /**
@@ -11,9 +15,10 @@ class ComixController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $comixs = Comix::all();
 
+        return view('admin.comix.index', compact('comixs'));
+    }
     /**
      * Show the form for creating a new resource.
      */
