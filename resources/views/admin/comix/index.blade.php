@@ -67,6 +67,10 @@
                                             const modal = document.getElementById('confirmDeleteModal');
                                             modal.style.display = 'none';
                                         }
+                                        document.getElementById('cancelDelete').addEventListener('click', function () {
+                                            const modal = document.getElementById('confirmDeleteModal');
+                                            modal.style.display = 'none';
+    });
                                     </script>
                                     
                                     
@@ -79,15 +83,12 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title">Conferma Eliminazione</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Chiudi">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
                                     </div>
                                     <div class="modal-body">
                                         Sei sicuro di voler cancellare questo elemento?
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancelDelete">Annulla</button>
                                         <form id="deleteForm" method="POST" action="">
                                             @csrf
                                             @method('DELETE')
