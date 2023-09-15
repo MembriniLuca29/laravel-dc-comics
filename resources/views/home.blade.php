@@ -10,5 +10,5 @@ Homepage
 <h1>
     Homepage
 </h1>
-
+<a href="/comixs">lista comix</a>
 @endsection
