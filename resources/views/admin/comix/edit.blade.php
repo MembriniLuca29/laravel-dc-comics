@@ -13,10 +13,11 @@
     </div>
 
     <div class="row">
-        <div class="col bg-warning py-4">
-            <form action="{{ route('comixs.store') }}" method="POST">
+        <div class="col bg-light py-4">
+            <form action="{{ route('comixs.update', ['id' => $comix->id]) }}" method="POST">
                 @csrf
                 @method('PUT')
+            
 
                 <div class="mb-3">
                     <label for="thumb" class="form-label">Src</label>
@@ -64,8 +65,8 @@
 
 
                 <div>
-                    <button type="submit" class="btn btn-primary w-100">
-                        + Aggiungi
+                    <button type="submit" class="btn btn-warning w-100">
+                        Aggiorna
                     </button>
                 </div>
             </form>

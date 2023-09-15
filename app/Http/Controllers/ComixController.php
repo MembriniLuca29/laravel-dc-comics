@@ -75,7 +75,27 @@ class ComixController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $comix = comix::findOrFail($id);
+        // dd($request->all());
+
+        $formdata = $request->all();
+
+        // $comix->update($formData);      // Mass assignment
+
+        // OPPURE
+
+        $comix->title = $formdata['title'];
+        $comix->description = $formdata['description'];
+        $comix->thumb = $formdata['thumb'];
+        $comix->price = $formdata['price'];
+        $comix->series = $formdata['series'];
+        $comix->sale_date = $formdata['sale_date'];
+        $comix->type = $formdata['type'];
+        $comix->artist = json_encode($formdata['artists']);
+        $comix->writers = json_encode($formdata['writers']);
+        $comix->save();
+
+        return redirect()->route('comixs.show', ['comix' => $comix->id]);
     }
 
     /**
