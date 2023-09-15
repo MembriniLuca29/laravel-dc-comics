@@ -42,6 +42,9 @@
                                 <a href="{{ route('comixs.show', ['comix' => $comix->id]) }}" class="btn btn-primary">
                                     Vedi
                                 </a>
+                                <a href="{{ route('comixs.edit', ['comix' => $comix->id]) }}" class="btn btn-warning">
+                                    Modifica
+                                </a>
                             </td>
                         </tr>
                     @endforeach

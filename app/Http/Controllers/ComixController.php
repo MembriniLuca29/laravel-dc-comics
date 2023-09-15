@@ -66,7 +66,8 @@ class ComixController extends Controller
      */
     public function edit(string $id)
     {
-        return view('admin.comix.edit');
+        $comix = Comix::findOrFail($id);
+        return view('admin.comix.edit',  compact('comix'));
     }
 
     /**
