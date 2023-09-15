@@ -103,6 +103,10 @@ class ComixController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $comix = Comix::findOrFail($id);
+
+        $comix->delete();
+
+        return redirect()->route('comixs.index');
     }
 }

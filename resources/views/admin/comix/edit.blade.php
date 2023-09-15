@@ -14,7 +14,8 @@
 
     <div class="row">
         <div class="col bg-light py-4">
-            <form action="{{ route('comixs.update', ['id' => $comix->id]) }}" method="POST">
+            <form action="{{ route('comixs.update', ['comix' => $comix->id]) }}" method="POST">
+
                 @csrf
                 @method('PUT')
             
