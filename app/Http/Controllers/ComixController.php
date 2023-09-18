@@ -33,6 +33,28 @@ class ComixController extends Controller
     public function store(Request $request)
     {
         $formdata = $request->all();
+        $request->validate([
+            'title' => 'required|max:70|unique:comixes',
+            'description' => 'required',
+            'thumb' => 'nullable|max:2048',
+            'price' => 'required|numeric|min:2|max:100',
+            'series' => 'nullable|max:64',
+            'sale_date' => 'nullable|date',
+            'type' => 'nullable|max:70',
+        ],[
+            'title.required' => 'Il titolo è obbligatorio',
+            'title.max' => 'Il titolo puo essere lungo al massimo 70 caratteri',
+            'title.unique' => 'Il titolo è già esistente',
+            'description.required' => 'La descrizione è obbligatoria',
+            'thumb.max' => 'Lunghezza del link non validà',
+            'price.required' => 'Il prezzo è obbligatorio',
+            'price.min' => 'Prezzo minimo $2.00',
+            'price.max' => 'Prezzo massimo $100.00',
+            'series.max' => 'Lunghezza massima 64 caratteri',
+            'sale_date.date' => 'Data non valida',
+            'type.max' => 'Lunghezza massima 70 caratteri',
+        ]
+    );
         
         $comix = new comix();
         $comix->title = $formdata['title'];
@@ -48,7 +70,8 @@ class ComixController extends Controller
         $comix->save();
 
 
-        return redirect()->route('comix.show', ['comixs' =>$comix->id]);
+        return redirect()->route('comix.show', ['comix' => $comix->id]);
+
     }
 
     /**
@@ -79,6 +102,30 @@ class ComixController extends Controller
         // dd($request->all());
 
         $formdata = $request->all();
+
+
+        $request->validate([
+            'title' => 'required|max:70|unique:comixes',
+            'description' => 'required',
+            'thumb' => 'nullable|max:2048',
+            'price' => 'required|numeric|min:2|max:100',
+            'series' => 'nullable|max:64',
+            'sale_date' => 'nullable|date',
+            'type' => 'nullable|max:70',
+        ],[
+            'title.required' => 'Il titolo è obbligatorio',
+            'title.max' => 'Il titolo puo essere lungo al massimo 70 caratteri',
+            'title.unique' => 'Il titolo è già esistente',
+            'description.required' => 'La descrizione è obbligatoria',
+            'thumb.max' => 'Lunghezza del link non validà',
+            'price.required' => 'Il prezzo è obbligatorio',
+            'price.min' => 'Prezzo minimo $2.00',
+            'price.max' => 'Prezzo massimo $100.00',
+            'series.max' => 'Lunghezza massima 64 caratteri',
+            'sale_date.date' => 'Data non valida',
+            'type.max' => 'Lunghezza massima 70 caratteri',
+        ]
+    );
 
         // $comix->update($formData);      // Mass assignment
 
