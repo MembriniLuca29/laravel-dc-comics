@@ -81,9 +81,10 @@
                 </div>
                 <div class="mb-3">
                     <label for="artists" class="form-label">artists</label>
-                    <input type="text"  maxlength="128" class="form-control" id="artists" name="artists" placeholder="Enter value..." 
-                    value= '{{ old("artist") }}'>
+                    <input type="text" maxlength="128" class="form-control" id="artists" name="artists" placeholder="Enter value..." 
+                    value="{{ old('artists') }}">
                 </div>
+                
                 <div class="mb-3">
                     <label for="writers" class="form-label">writers</label>
                     <input type="text" maxlength="128" class="form-control" id="writers" name="writers" placeholder="Enter value..." 
@@ -92,13 +93,14 @@
 
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <textarea class="form-control" @error('description') is-invalid @enderror id="description" name="description" rows="3"
-                    value= '{{ old("description") }}'></textarea>
+                    <textarea class="form-control" @error('description') is-invalid @enderror id="description" name="description" rows="3">{{ old('description') }}</textarea>
                     @error('description')
                     <div class="alert alert-danger mb-4 mt-2"> 
                         {{ $message }}
+                    </div>
                     @enderror
                 </div>
+                
 
 
                 <div>
